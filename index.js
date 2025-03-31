@@ -1,11 +1,9 @@
 require("dotenv").config();
 const { Telegraf } = require("telegraf");
-const fs = require("fs");
-const path = require("path");
 
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
-// === START ===
+// ✅ دستور /start برای نمایش دکمه Mini App
 bot.start((ctx) => {
   ctx.reply("👋 Welcome to FOOTBOT-MASTER!\nClick below to open the Mini App:", {
     reply_markup: {
@@ -18,7 +16,7 @@ bot.start((ctx) => {
   });
 });
 
-// === Reply to all messages with Mini App Button ===
+// ✅ نمایش دکمه Mini App برای هر پیام متنی از کاربر
 bot.on("message", (ctx) => {
   ctx.reply("👇 Tap to open the Mini App:", {
     reply_markup: {
@@ -31,9 +29,6 @@ bot.on("message", (ctx) => {
   });
 });
 
-// === Launch Bot ===
+// ✅ اجرای بات
 bot.launch();
 console.log("✅ FOOTBOT-MASTER is running...");
-
-process.once("SIGINT", () => bot.stop("SIGINT"));
-process.once("SIGTERM", () => bot.stop("SIGTERM"));
