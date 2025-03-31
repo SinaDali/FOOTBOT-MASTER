@@ -33,12 +33,18 @@ bot.on("message", (ctx) => {
 bot.launch();
 console.log("✅ FOOTBOT-MASTER is running...");
 const express = require("express");
+const path = require("path");
 const app = express();
 
 const PORT = process.env.PORT || 3000;
+
+// Serve static files from webapp folder
+app.use(express.static(path.join(__dirname, "webapp")));
+
 app.get("/", (req, res) => {
-  res.send("FOOTBOT-MASTER is running...");
+  res.sendFile(path.join(__dirname, "webapp", "index.html"));
 });
+
 app.listen(PORT, () => {
   console.log(`🌐 Server running on port ${PORT}`);
 });
