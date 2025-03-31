@@ -7,7 +7,7 @@ const bot = new Telegraf(process.env.BOT_TOKEN);
 
 // === START ===
 bot.start((ctx) => {
-  return ctx.reply("👋 Welcome to FOOTBOT-MASTER!\nClick below to open the Mini App:", {
+  ctx.reply("👋 Welcome to FOOTBOT-MASTER!\nClick below to open the Mini App:", {
     reply_markup: {
       keyboard: [
         [{ text: "🚀 Open Mini App", web_app: { url: "https://footbot-server.onrender.com" } }]
@@ -20,7 +20,7 @@ bot.start((ctx) => {
 
 // === Reply to all messages with Mini App Button ===
 bot.on("message", (ctx) => {
-  return ctx.reply("👇 Tap to open the Mini App:", {
+  ctx.reply("👇 Tap to open the Mini App:", {
     reply_markup: {
       keyboard: [
         [{ text: "🚀 Open Mini App", web_app: { url: "https://footbot-server.onrender.com" } }]
