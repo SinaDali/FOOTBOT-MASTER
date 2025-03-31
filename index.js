@@ -10,18 +10,13 @@ const bot = new Telegraf(process.env.BOT_TOKEN);
 
 // ✅ /start
 bot.start((ctx) => {
-  ctx.reply("Welcome to FOOTBOT-MASTER ⚽🤖\nGet your daily predictions below:", {
+  return ctx.reply("👋 Welcome to FOOTBOT-MASTER!\nClick below to open the Mini App:", {
     reply_markup: {
-      inline_keyboard: [
-        [
-          {
-            text: "🚀 Open Mini App",
-            web_app: {
-              url: "https://footbot-server.onrender.com" // 🔁 این لینک رو از Render گرفتی
-            }
-          }
-        ]
-      ]
+      keyboard: [
+        [{ text: "🚀 Open Mini App", web_app: { url: "https://footbot-server.onrender.com" } }]
+      ],
+      resize_keyboard: true,
+      one_time_keyboard: false,
     }
   });
 });
@@ -247,3 +242,14 @@ cron.schedule("0 9 * * *", () => {
 // ✅ Launch bot
 bot.launch();
 console.log("✅ FOOTBOT-MASTER is running...");
+bot.on("message", (ctx) => {
+  return ctx.reply("👇 Tap to open the Mini App:", {
+    reply_markup: {
+      keyboard: [
+        [{ text: "🚀 Open Mini App", web_app: { url: "https://footbot-server.onrender.com" } }]
+      ],
+      resize_keyboard: true,
+      one_time_keyboard: false,
+    }
+  });
+});
