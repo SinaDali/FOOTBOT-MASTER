@@ -32,3 +32,13 @@ bot.on("message", (ctx) => {
 // ✅ اجرای بات
 bot.launch();
 console.log("✅ FOOTBOT-MASTER is running...");
+const express = require("express");
+const app = express();
+
+const PORT = process.env.PORT || 3000;
+app.get("/", (req, res) => {
+  res.send("FOOTBOT-MASTER is running...");
+});
+app.listen(PORT, () => {
+  console.log(`🌐 Server running on port ${PORT}`);
+});
