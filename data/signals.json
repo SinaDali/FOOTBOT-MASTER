@@ -18,5 +18,25 @@
     "firstHalf": "Yes - At least one goal (confidence: 79%)",
     "risk": "Medium",
     "analysis": "In their last 5 meetings, Barcelona won 2, PSG won 2, and 1 were draws. This match decides group leader"
+  },
+  {
+    "id": "1de81db2-f648-46d0-b700-a96b1f36badc",
+    "match": "Juventus vs Bayern",
+    "date": "2024-04-04",
+    "winProb": "Juventus 51% - Bayern 49%",
+    "goals": "Clean Sheet",
+    "firstHalf": "No - Likely goalless (confidence: 64%)",
+    "risk": "Low",
+    "analysis": "In their last 5 meetings, Juventus won 1, Bayern won 1, and 0 were draws. Bayern needs 3 points to stay in Champions League race"
+  },
+  {
+    "id": "f90868bf-fa46-41c3-a2df-562e72818804",
+    "match": "Barcelona vs PSG",
+    "date": "2024-04-04",
+    "winProb": "Barcelona 51% - PSG 49%",
+    "goals": "Clean Sheet",
+    "firstHalf": "Yes - At least one goal (confidence: 77%)",
+    "risk": "Medium",
+    "analysis": "In their last 5 meetings, Barcelona won 1, PSG won 3, and 0 were draws. This match decides group leader"
   }
 ]
