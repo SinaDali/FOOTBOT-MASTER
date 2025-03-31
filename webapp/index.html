@@ -3,77 +3,80 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>FOOTBOT-MASTER</title>
-  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <title>BetSignals</title>
   <style>
     body {
-      font-family: sans-serif;
-      margin: 0;
-      padding: 1rem;
-      background: #121212;
-      color: #fff;
+      background-color: #111;
+      font-family: Arial, sans-serif;
+      color: #eee;
+      padding: 20px;
     }
     h1 {
       text-align: center;
-      color: #00ffa3;
+      color: #00ffcc;
     }
-    .signal-card {
-      background: #1e1e1e;
+    .signal {
+      background-color: #222;
+      padding: 15px;
       border-radius: 10px;
-      padding: 1rem;
-      margin: 1rem 0;
-      box-shadow: 0 0 8px rgba(0,0,0,0.4);
+      margin-bottom: 20px;
+      box-shadow: 0 0 10px #0f0f0f;
     }
-    .signal-card div {
-      margin: 0.3rem 0;
+    .signal p {
+      margin: 5px 0;
     }
-    .label {
+    .highlight {
+      color: #00ffcc;
+    }
+    .risk {
       font-weight: bold;
-      color: #00ffa3;
+      color: orange;
     }
-    .value {
-      margin-left: 0.3rem;
-      color: #fff;
+    .goals {
+      color: #00ff88;
+    }
+    .first-half {
+      color: #ffaa00;
+    }
+    .analysis {
+      color: #aaa;
+      font-style: italic;
     }
   </style>
 </head>
 <body>
-  <h1>📊 Today’s Signals</h1>
-  <div id="signals-container"></div>
+  <h1>📊 Today's Signals</h1>
+  <div id="signals"></div>
 
   <script>
-    const tg = window.Telegram.WebApp;
-    tg.expand();
-
-    async function loadSignals() {
-      try {
-        const res = await fetch("/signals");
-        const signals = await res.json();
-
-        const container = document.getElementById("signals-container");
-        if (signals.length === 0) {
-          container.innerHTML = "<p>No signals available yet.</p>";
+    fetch("/data/signals.json")
+      .then((res) => res.json())
+      .then((data) => {
+        const container = document.getElementById("signals");
+        if (data.length === 0) {
+          container.innerHTML = "<p>No signals available.</p>";
           return;
         }
 
-        signals.forEach(signal => {
+        data.slice().reverse().forEach((signal) => {
           const div = document.createElement("div");
-          div.className = "signal-card";
+          div.className = "signal";
           div.innerHTML = `
-            <div><span class="label">Match:</span><span class="value">${signal.match}</span></div>
-            <div><span class="label">Date:</span><span class="value">${signal.date}</span></div>
-            <div><span class="label">Win Prob:</span><span class="value">${signal.winProb}</span></div>
-            <div><span class="label">Goals:</span><span class="value">${signal.goals}</span></div>
-            <div><span class="label">Risk:</span><span class="value">${signal.risk}</span></div>
+            <p><b class="highlight">Match:</b> ${signal.match}</p>
+            <p><b class="highlight">Date:</b> ${signal.date}</p>
+            <p><b class="highlight">Win Prob:</b> ${signal.winProb}</p>
+            <p><b class="goals">Goals:</b> ${signal.goals}</p>
+            <p><b class="first-half">1st Half:</b> ${signal.firstHalf || "N/A"}</p>
+            <p><b class="risk">Risk:</b> ${signal.risk}</p>
+            <p class="analysis">📝 ${signal.analysis || ""}</p>
           `;
           container.appendChild(div);
         });
-      } catch (error) {
-        document.getElementById("signals-container").innerText = "❌ Failed to load signals.";
-      }
-    }
-
-    loadSignals();
+      })
+      .catch((err) => {
+        document.getElementById("signals").innerHTML =
+          "<p style='color:red;'>❌ Failed to load signals.</p>";
+      });
   </script>
 </body>
 </html>
