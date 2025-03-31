@@ -1,0 +1,26 @@
+[
+  {
+    "id": "63cbdd1e-8b6c-470b-a035-7b3e23002818",
+    "match": "Barcelona vs Real Madrid",
+    "date": "2024-04-01",
+    "winProb": "Barcelona 51% - Real Madrid 49%",
+    "goals": "Over 2.5",
+    "risk": "High"
+  },
+  {
+    "id": "c35170f5-8791-48e4-9fb2-b06667e2e8c7",
+    "match": "Liverpool vs Arsenal",
+    "date": "2024-04-01",
+    "winProb": "Liverpool 51% - Arsenal 49%",
+    "goals": "Over 2.5",
+    "risk": "High"
+  },
+  {
+    "id": "65b2a0c2-5f9f-4eec-9ea4-e921515afc8b",
+    "match": "Juventus vs Napoli",
+    "date": "2024-04-01",
+    "winProb": "Juventus 51% - Napoli 49%",
+    "goals": "Under 2.5",
+    "risk": "High"
+  }
+]
