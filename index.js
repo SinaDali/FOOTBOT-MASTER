@@ -17,7 +17,7 @@ bot.start((ctx) => {
           {
             text: "🚀 Open Mini App",
             web_app: {
-              url: "https://89c7-89-44-198-155.ngrok-free.app"
+              url: "https://footbot-server.onrender.com" // 🔁 این لینک رو از Render گرفتی
             }
           }
         ]

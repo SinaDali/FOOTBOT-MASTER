@@ -1,38 +1,12 @@
 [
     {
-      "match": "Barcelona vs Real Madrid",
-      "league": "La Liga",
-      "date": "2024-04-01",
-      "time": "20:30",
-      "home_strength": 85,
-      "away_strength": 82,
-      "recent_form": {
-        "barcelona": "WWDWL",
-        "real_madrid": "DWWWL"
-      }
+      "match": "Juventus vs Bayern",
+      "date": "2024-04-04",
+      "motivation": "Bayern needs 3 points to stay in Champions League race"
     },
     {
-      "match": "Liverpool vs Arsenal",
-      "league": "Premier League",
-      "date": "2024-04-01",
-      "time": "22:00",
-      "home_strength": 88,
-      "away_strength": 86,
-      "recent_form": {
-        "liverpool": "WWWWW",
-        "arsenal": "WWDDL"
-      }
-    },
-    {
-      "match": "Juventus vs Napoli",
-      "league": "Serie A",
-      "date": "2024-04-01",
-      "time": "18:00",
-      "home_strength": 79,
-      "away_strength": 75,
-      "recent_form": {
-        "juventus": "LLDWL",
-        "napoli": "WWLWD"
-      }
+      "match": "Barcelona vs PSG",
+      "date": "2024-04-04",
+      "motivation": "This match decides group leader"
     }
   ]  

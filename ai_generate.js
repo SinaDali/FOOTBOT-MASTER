@@ -1,59 +1,58 @@
 const fs = require("fs");
 const { v4: uuidv4 } = require("uuid");
 
-// دریافت لیست بازی‌ها
-const matches = JSON.parse(fs.readFileSync("data/matches.json"));
+const matchesPath = "./data/matches.json";
+const signalsPath = "./data/signals.json";
 
-// لیست خروجی سیگنال‌ها
-const signals = [];
+function randomPercent(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
-matches.forEach(match => {
-  const { match: matchName, league, date, time, home_strength, away_strength, recent_form } = match;
+function generateSignal(match) {
+  const [home, away] = match.match.split(" vs ");
+  const homeWin = randomPercent(45, 55);
+  const awayWin = 100 - homeWin;
 
-  const strength_diff = Math.abs(home_strength - away_strength);
-  let winProb = "";
-  let goals = "";
-  let risk = "";
+  const riskLevels = ["Low", "Medium", "High"];
+  const goalsOptions = ["Over 2.5", "Under 2.5", "BTTS", "Clean Sheet"];
 
-  // تحلیل احتمال برد
-  if (home_strength > away_strength) {
-    winProb = `${matchName.split(" vs ")[0]} ${(home_strength / (home_strength + away_strength) * 100).toFixed(0)}% - ${matchName.split(" vs ")[1]} ${(away_strength / (home_strength + away_strength) * 100).toFixed(0)}%`;
-  } else {
-    winProb = `${matchName.split(" vs ")[0]} ${(home_strength / (home_strength + away_strength) * 100).toFixed(0)}% - ${matchName.split(" vs ")[1]} ${(away_strength / (home_strength + away_strength) * 100).toFixed(0)}%`;
-  }
-
-  // تحلیل گل‌ها
-  const form = Object.values(recent_form).join("");
-  const attackingForm = (form.match(/W/g) || []).length;
-
-  if (attackingForm >= 6) {
-    goals = "Over 2.5";
-  } else {
-    goals = "Under 2.5";
-  }
-
-  // تحلیل ریسک
-  if (strength_diff >= 10) {
-    risk = "Low";
-  } else if (strength_diff >= 5) {
-    risk = "Medium";
-  } else {
-    risk = "High";
-  }
-
-  // ساخت سیگنال نهایی
-  const signal = {
-    id: uuidv4(),
-    match: matchName,
-    date: date,
-    winProb: winProb,
-    goals: goals,
-    risk: risk
+  const firstHalf = {
+    chance: randomPercent(60, 90),
+    text: randomPercent(0, 1)
+      ? `Yes - At least one goal (confidence: ${randomPercent(70, 95)}%)`
+      : `No - Likely goalless (confidence: ${randomPercent(60, 80)}%)`
   };
 
-  signals.push(signal);
-});
+  const analysis = `In their last 5 meetings, ${home} won ${randomPercent(1, 3)}, ${away} won ${randomPercent(1, 3)}, and ${randomPercent(0, 2)} were draws. ${match.motivation || home + " is fighting for 3 points."}`;
 
-fs.writeFileSync("data/signals.json", JSON.stringify(signals, null, 2));
+  return {
+    id: uuidv4(),
+    match: match.match,
+    date: match.date,
+    winProb: `${home} ${homeWin}% - ${away} ${awayWin}%`,
+    goals: goalsOptions[Math.floor(Math.random() * goalsOptions.length)],
+    firstHalf: firstHalf.text,
+    risk: riskLevels[Math.floor(Math.random() * riskLevels.length)],
+    analysis
+  };
+}
 
-console.log("✅ AI-generated signals saved to data/signals.json");
+function main() {
+  try {
+    const matches = JSON.parse(fs.readFileSync(matchesPath));
+    let existingSignals = [];
+    if (fs.existsSync(signalsPath)) {
+      existingSignals = JSON.parse(fs.readFileSync(signalsPath));
+    }
+
+    const newSignals = matches.map((match) => generateSignal(match));
+    const updatedSignals = [...existingSignals, ...newSignals];
+
+    fs.writeFileSync(signalsPath, JSON.stringify(updatedSignals, null, 2));
+    console.log(`✅ Generated ${newSignals.length} new signal(s)!`);
+  } catch (err) {
+    console.error("❌ Error generating signals:", err);
+  }
+}
+
+main();

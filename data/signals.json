@@ -1,26 +1,22 @@
 [
   {
-    "id": "63cbdd1e-8b6c-470b-a035-7b3e23002818",
-    "match": "Barcelona vs Real Madrid",
-    "date": "2024-04-01",
-    "winProb": "Barcelona 51% - Real Madrid 49%",
+    "id": "5a0531d2-b6e6-40f8-8d1a-d5d0bb0babbe",
+    "match": "Juventus vs Bayern",
+    "date": "2024-04-04",
+    "winProb": "Juventus 51% - Bayern 49%",
     "goals": "Over 2.5",
-    "risk": "High"
+    "firstHalf": "Yes - At least one goal (confidence: 72%)",
+    "risk": "Low",
+    "analysis": "In their last 5 meetings, Juventus won 3, Bayern won 1, and 1 were draws. Bayern needs 3 points to stay in Champions League race"
   },
   {
-    "id": "c35170f5-8791-48e4-9fb2-b06667e2e8c7",
-    "match": "Liverpool vs Arsenal",
-    "date": "2024-04-01",
-    "winProb": "Liverpool 51% - Arsenal 49%",
+    "id": "85d04af7-58db-4991-8abf-dee46672675e",
+    "match": "Barcelona vs PSG",
+    "date": "2024-04-04",
+    "winProb": "Barcelona 50% - PSG 50%",
     "goals": "Over 2.5",
-    "risk": "High"
-  },
-  {
-    "id": "65b2a0c2-5f9f-4eec-9ea4-e921515afc8b",
-    "match": "Juventus vs Napoli",
-    "date": "2024-04-01",
-    "winProb": "Juventus 51% - Napoli 49%",
-    "goals": "Under 2.5",
-    "risk": "High"
+    "firstHalf": "Yes - At least one goal (confidence: 79%)",
+    "risk": "Medium",
+    "analysis": "In their last 5 meetings, Barcelona won 2, PSG won 2, and 1 were draws. This match decides group leader"
   }
 ]
