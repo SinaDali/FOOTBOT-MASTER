@@ -1,72 +1,42 @@
 [
   {
-    "id": "arsenal-fulham-20250401",
-    "teams": "Arsenal vs Fulham",
+    "id": "sig-psg-dunk-001",
+    "match": "PSG vs Dunkerque",
     "date": "2025-04-01",
-    "winProbability": {
-      "Arsenal": 72,
-      "Fulham": 12,
-      "Draw": 16
-    },
-    "totalGoals": "Over 2.5",
-    "firstHalf": "At least one goal in first half",
-    "riskLevel": "Low",
-    "analysis": "Arsenal is dominating the Premier League race and plays at home with full squad available. Fulham struggles defensively away from home, making Arsenal a strong favorite."
+    "winProb": "PSG 85% - Dunkerque 15%",
+    "goals": "Over 2.5",
+    "firstHalf": "Yes – PSG likely to score 1-2 goals early",
+    "risk": "Low",
+    "analysis": "Huge mismatch in French Cup semi-final. PSG will rotate slightly but still field top attackers. Dunkerque may struggle to contain them. Expect goals in both halves."
   },
   {
-    "id": "wolves-westham-20250401",
-    "teams": "Wolves vs West Ham",
+    "id": "sig-real-atletico-002",
+    "match": "Real Madrid vs Atletico Madrid",
     "date": "2025-04-01",
-    "winProbability": {
-      "Wolves": 34,
-      "West Ham": 38,
-      "Draw": 28
-    },
-    "totalGoals": "Under 3.5",
-    "firstHalf": "Possibly 0-0 or 1-0 first half",
-    "riskLevel": "Medium",
-    "analysis": "Both teams are mid-table and close in form. Expect a tactical match with limited chances, especially in the first half. Set pieces might be decisive."
-  },
-  {
-    "id": "nottingham-manunited-20250401",
-    "teams": "Nottingham Forest vs Manchester United",
-    "date": "2025-04-01",
-    "winProbability": {
-      "Nottingham Forest": 19,
-      "Manchester United": 64,
-      "Draw": 17
-    },
-    "totalGoals": "Over 2.5",
-    "firstHalf": "United likely to score early",
-    "riskLevel": "Low",
-    "analysis": "Manchester United is pushing for Champions League spots and needs a solid win. Nottingham has struggled against top-6 teams this season. Expect United to dominate possession."
-  },
-  {
-    "id": "realmadrid-sociedad-20250401",
-    "teams": "Real Madrid vs Real Sociedad",
-    "date": "2025-04-01",
-    "winProbability": {
-      "Real Madrid": 62,
-      "Real Sociedad": 21,
-      "Draw": 17
-    },
-    "totalGoals": "Under 3.5",
+    "winProb": "Real 52% - Atletico 48%",
+    "goals": "Under 2.5",
     "firstHalf": "Likely 1-0 to Madrid",
-    "riskLevel": "Medium",
-    "analysis": "Cup semifinal with high stakes. Real Madrid has depth and home advantage, but Sociedad's disciplined play could keep it tight. Expect Madrid to score first and manage the game."
+    "risk": "Medium",
+    "analysis": "Madrid derby in Copa del Rey. High stakes, tight defense expected. Real to control possession, but Atletico's counters are dangerous."
   },
   {
-    "id": "dunkerque-psg-20250401",
-    "teams": "Dunkerque vs Paris SG",
+    "id": "sig-juve-milan-003",
+    "match": "Juventus vs AC Milan",
     "date": "2025-04-01",
-    "winProbability": {
-      "Dunkerque": 5,
-      "Paris SG": 85,
-      "Draw": 10
-    },
-    "totalGoals": "Over 3.5",
-    "firstHalf": "PSG to score 1-2 goals early",
-    "riskLevel": "Low",
-    "analysis": "Huge mismatch in French Cup semi. PSG will rotate slightly but still field top attackers. Dunkerque may struggle to contain them. Expect goals in both halves."
+    "winProb": "Juventus 55% - Milan 45%",
+    "goals": "BTTS",
+    "firstHalf": "Likely 1 goal each",
+    "risk": "High",
+    "analysis": "Classic Serie A clash. Both teams in good form. Milan vulnerable to set-pieces; Juventus strong at home. Expect goals from both sides."
+  },
+  {
+    "id": "sig-chelsea-liverpool-004",
+    "match": "Chelsea vs Liverpool",
+    "date": "2025-04-01",
+    "winProb": "Chelsea 48% - Liverpool 52%",
+    "goals": "Over 2.5",
+    "firstHalf": "1-1 likely at HT",
+    "risk": "High",
+    "analysis": "FA Cup quarter-final. Chelsea improving but still unstable at the back. Liverpool likely to press early. Goals expected from both teams."
   }
 ]
