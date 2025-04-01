@@ -1,42 +1,22 @@
 [
   {
-    "id": "5a0531d2-b6e6-40f8-8d1a-d5d0bb0babbe",
+    "id": "91adf4cc-36cb-49e3-b5ab-43f0e1059cd7",
     "match": "Juventus vs Bayern",
     "date": "2024-04-04",
-    "winProb": "Juventus 51% - Bayern 49%",
+    "winProb": "Juventus 45% - Bayern 55%",
     "goals": "Over 2.5",
-    "firstHalf": "Yes - At least one goal (confidence: 72%)",
-    "risk": "Low",
-    "analysis": "In their last 5 meetings, Juventus won 3, Bayern won 1, and 1 were draws. Bayern needs 3 points to stay in Champions League race"
+    "firstHalf": "No - Likely goalless (confidence: 62%)",
+    "risk": "Medium",
+    "analysis": "In their last 5 meetings, Juventus won 2, Bayern won 3, and 1 were draws. Juventus is fighting for 3 points."
   },
   {
-    "id": "85d04af7-58db-4991-8abf-dee46672675e",
+    "id": "c1a76d36-d88b-42c6-b13c-511324786981",
     "match": "Barcelona vs PSG",
     "date": "2024-04-04",
-    "winProb": "Barcelona 50% - PSG 50%",
-    "goals": "Over 2.5",
-    "firstHalf": "Yes - At least one goal (confidence: 79%)",
+    "winProb": "Barcelona 55% - PSG 45%",
+    "goals": "BTTS",
+    "firstHalf": "No - Likely goalless (confidence: 67%)",
     "risk": "Medium",
-    "analysis": "In their last 5 meetings, Barcelona won 2, PSG won 2, and 1 were draws. This match decides group leader"
-  },
-  {
-    "id": "1de81db2-f648-46d0-b700-a96b1f36badc",
-    "match": "Juventus vs Bayern",
-    "date": "2024-04-04",
-    "winProb": "Juventus 51% - Bayern 49%",
-    "goals": "Clean Sheet",
-    "firstHalf": "No - Likely goalless (confidence: 64%)",
-    "risk": "Low",
-    "analysis": "In their last 5 meetings, Juventus won 1, Bayern won 1, and 0 were draws. Bayern needs 3 points to stay in Champions League race"
-  },
-  {
-    "id": "f90868bf-fa46-41c3-a2df-562e72818804",
-    "match": "Barcelona vs PSG",
-    "date": "2024-04-04",
-    "winProb": "Barcelona 51% - PSG 49%",
-    "goals": "Clean Sheet",
-    "firstHalf": "Yes - At least one goal (confidence: 77%)",
-    "risk": "Medium",
-    "analysis": "In their last 5 meetings, Barcelona won 1, PSG won 3, and 0 were draws. This match decides group leader"
+    "analysis": "In their last 5 meetings, Barcelona won 3, PSG won 2, and 1 were draws. Barcelona is fighting for 3 points."
   }
 ]
