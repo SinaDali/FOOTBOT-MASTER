@@ -1,58 +1,72 @@
 const fs = require("fs");
+const path = require("path");
 const { v4: uuidv4 } = require("uuid");
+const { exec } = require("child_process");
 
-const matchesPath = "./data/matches.json";
-const signalsPath = "./data/signals.json";
+// فایل‌های مسیر
+const matchesPath = path.join(__dirname, "data", "matches.json");
+const signalsPath = path.join(__dirname, "webapp", "signals.json");
 
-function randomPercent(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+// 📌 Prompt سبک‌شده برای تحلیل سریع
+function buildPrompt(match) {
+  return `Predict the following for this football match:
+Match: ${match.match}
+Date: ${match.date}
+
+Respond in JSON format with:
+{
+  "winProb": "TEAM_A % - TEAM_B %",
+  "goals": "Over 2.5" or "Under 2.5",
+  "firstHalf": "Yes - At least one goal (confidence: XX%)" or "No - Likely goalless (confidence: XX%)",
+  "analysis": "Short 1-2 sentence explanation about team form or history."
+}`;
 }
 
-function generateSignal(match) {
-  const [home, away] = match.match.split(" vs ");
-  const homeWin = randomPercent(45, 55);
-  const awayWin = 100 - homeWin;
-
-  const riskLevels = ["Low", "Medium", "High"];
-  const goalsOptions = ["Over 2.5", "Under 2.5", "BTTS", "Clean Sheet"];
-
-  const firstHalf = {
-    chance: randomPercent(60, 90),
-    text: randomPercent(0, 1)
-      ? `Yes - At least one goal (confidence: ${randomPercent(70, 95)}%)`
-      : `No - Likely goalless (confidence: ${randomPercent(60, 80)}%)`
-  };
-
-  const analysis = `In their last 5 meetings, ${home} won ${randomPercent(1, 3)}, ${away} won ${randomPercent(1, 3)}, and ${randomPercent(0, 2)} were draws. ${match.motivation || home + " is fighting for 3 points."}`;
-
-  return {
-    id: uuidv4(),
-    match: match.match,
-    date: match.date,
-    winProb: `${home} ${homeWin}% - ${away} ${awayWin}%`,
-    goals: goalsOptions[Math.floor(Math.random() * goalsOptions.length)],
-    firstHalf: firstHalf.text,
-    risk: riskLevels[Math.floor(Math.random() * riskLevels.length)],
-    analysis
-  };
+// گرفتن پاسخ از Ollama
+async function askOllama(prompt) {
+  return new Promise((resolve, reject) => {
+    const command = `ollama run llama3 "${prompt.replace(/"/g, '\\"')}"`;
+    exec(command, { maxBuffer: 1024 * 500 }, (error, stdout, stderr) => {
+      if (error) return reject(error);
+      try {
+        const json = stdout.substring(stdout.indexOf("{"), stdout.lastIndexOf("}") + 1);
+        const parsed = JSON.parse(json);
+        resolve(parsed);
+      } catch (e) {
+        reject("❌ Error parsing Ollama response: " + e);
+      }
+    });
+  });
 }
 
-function main() {
-  try {
-    const matches = JSON.parse(fs.readFileSync(matchesPath));
-    let existingSignals = [];
-    if (fs.existsSync(signalsPath)) {
-      existingSignals = JSON.parse(fs.readFileSync(signalsPath));
+// اجرای اصلی
+async function main() {
+  const matches = JSON.parse(fs.readFileSync(matchesPath, "utf8"));
+  const signals = [];
+
+  for (const match of matches) {
+    const prompt = buildPrompt(match);
+    console.log(`🤖 Analyzing: ${match.match}...`);
+    try {
+      const ai = await askOllama(prompt);
+      signals.push({
+        id: uuidv4(),
+        match: match.match,
+        date: match.date,
+        winProb: ai.winProb,
+        goals: ai.goals,
+        firstHalf: ai.firstHalf,
+        risk: "Medium", // فعلاً ریسک ثابته
+        analysis: ai.analysis
+      });
+      console.log(`✅ Done: ${match.match}`);
+    } catch (err) {
+      console.error(`❌ Failed: ${match.match}`, err);
     }
-
-    const newSignals = matches.map((match) => generateSignal(match));
-    const updatedSignals = [...existingSignals, ...newSignals];
-
-    fs.writeFileSync(signalsPath, JSON.stringify(updatedSignals, null, 2));
-    console.log(`✅ Generated ${newSignals.length} new signal(s)!`);
-  } catch (err) {
-    console.error("❌ Error generating signals:", err);
   }
+
+  fs.writeFileSync(signalsPath, JSON.stringify(signals, null, 2));
+  console.log(`\n🚀 Generated ${signals.length} AI signal(s)!`);
 }
 
 main();
