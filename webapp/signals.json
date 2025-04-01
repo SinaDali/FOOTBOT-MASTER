@@ -1,45 +1,44 @@
 [
   {
-    "id": "sig-psg-dunk-001",
-    "match": "PSG vs Dunkerque",
-    "date": "2025-04-01",
-    "winProb": "PSG 85% - Dunkerque 15%",
+    "id": "bar-atm",
+    "match": "Barcelona vs Atletico Madrid",
+    "date": "2025-04-02",
+    "winProb": "Barcelona 55% - Atletico 45%",
     "goals": "Over 2.5",
-    "firstHalf": "Yes – PSG likely to score 1-2 goals early",
-    "risk": "Low",
-    "analysis": "Huge mismatch in French Cup semi-final. PSG will rotate slightly but still field top attackers. Dunkerque may struggle to contain them. Expect goals in both halves."
-  },
-  {
-    "id": "sig-real-atletico-002",
-    "match": "Real Madrid vs Atletico Madrid",
-    "date": "2025-04-01",
-    "winProb": "Real 52% - Atletico 48%",
-    "goals": "Under 2.5",
-    "firstHalf": "Likely 1-0 to Madrid",
+    "firstHalf": "Likely 1+ goal - 70%",
     "risk": "Medium",
-    "analysis": "Madrid derby in Copa del Rey. High stakes, tight defense expected. Real to control possession, but Atletico's counters are dangerous."
+    "analysis": "Both teams are in good form. Expect attacking football and early chances."
   },
   {
-    "id": "sig-juve-milan-003",
-    "match": "Juventus vs AC Milan",
-    "date": "2025-04-01",
-    "winProb": "Juventus 55% - Milan 45%",
-    "goals": "BTTS",
-    "firstHalf": "Likely 1 goal each",
-    "risk": "High",
-    "analysis": "Classic Serie A clash. Both teams in good form. Milan vulnerable to set-pieces; Juventus strong at home. Expect goals from both sides."
-  },
-  {
-    "id": "sig-chelsea-liverpool-004",
-    "match": "Chelsea vs Liverpool",
-    "date": "2025-04-01",
-    "winProb": "Chelsea 48% - Liverpool 52%",
+    "id": "psg-ren",
+    "match": "PSG vs Rennes",
+    "date": "2025-04-02",
+    "winProb": "PSG 68% - Rennes 32%",
     "goals": "Over 2.5",
-    "firstHalf": "1-1 likely at HT",
+    "firstHalf": "Likely 2+ goals - 75%",
+    "risk": "Low",
+    "analysis": "PSG dominates at home. Rennes may score on counter, but PSG should win clearly."
+  },
+  {
+    "id": "liv-new",
+    "match": "Liverpool vs Newcastle",
+    "date": "2025-04-02",
+    "winProb": "Liverpool 60% - Newcastle 40%",
+    "goals": "Over 3.5",
+    "firstHalf": "At least 1 goal - 80%",
     "risk": "High",
-    "analysis": "FA Cup quarter-final. Chelsea improving but still unstable at the back. Liverpool likely to press early. Goals expected from both teams."
-  }
-  
+    "analysis": "Newcastle is vulnerable defensively. Expect a fast start and open match."
+  },
+  {
+    "id": "juv-int",
+    "match": "Juventus vs Inter Milan",
+    "date": "2025-04-02",
+    "winProb": "Juventus 47% - Inter 53%",
+    "goals": "Under 2.5",
+    "firstHalf": "0-0 likely - 60%",
+    "risk": "Medium",
+    "analysis": "Top clash with tactical play. Both teams strong defensively. Tight match expected."
+  },
   {
     "id": "sund-nor",
     "match": "Sunderland vs Norwich",
@@ -80,6 +79,4 @@
     "risk": "Medium",
     "analysis": "Very balanced teams with good defenses. Low scoring match expected. Draw is also probable."
   }
-
-
 ]
