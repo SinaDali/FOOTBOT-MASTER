@@ -39,4 +39,47 @@
     "risk": "High",
     "analysis": "FA Cup quarter-final. Chelsea improving but still unstable at the back. Liverpool likely to press early. Goals expected from both teams."
   }
+  
+  {
+    "id": "sund-nor",
+    "match": "Sunderland vs Norwich",
+    "date": "2025-04-02",
+    "winProb": "Sunderland 45% - Norwich 55%",
+    "goals": "Under 2.5",
+    "firstHalf": "At least 1 goal - 60%",
+    "risk": "Medium",
+    "analysis": "Norwich is in better form but Sunderland has strong home support. A tight game is expected with few goals."
+  },
+  {
+    "id": "pisa-mode",
+    "match": "Pisa vs Modena",
+    "date": "2025-04-02",
+    "winProb": "Pisa 48% - Modena 52%",
+    "goals": "Over 2.5",
+    "firstHalf": "Likely 1+ goal - 65%",
+    "risk": "High",
+    "analysis": "Both teams are unpredictable and capable of high-scoring matches. Pisa often scores early at home."
+  },
+  {
+    "id": "nimes-redstar",
+    "match": "Nîmes vs Red Star",
+    "date": "2025-04-02",
+    "winProb": "Nîmes 42% - Red Star 58%",
+    "goals": "Over 2.5",
+    "firstHalf": "At least 1 goal - 70%",
+    "risk": "Low",
+    "analysis": "Red Star has been dominating this league and scores in nearly every first half. Safe pick."
+  },
+  {
+    "id": "wisla-arka",
+    "match": "Wisla Krakow vs Arka Gdynia",
+    "date": "2025-04-02",
+    "winProb": "Wisla 50% - Arka 50%",
+    "goals": "Under 2.5",
+    "firstHalf": "0-0 likely - 55%",
+    "risk": "Medium",
+    "analysis": "Very balanced teams with good defenses. Low scoring match expected. Draw is also probable."
+  }
+
+
 ]
