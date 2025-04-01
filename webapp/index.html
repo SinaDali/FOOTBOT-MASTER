@@ -6,76 +6,83 @@
   <title>BetSignals</title>
   <style>
     body {
-      background-color: #111;
-      font-family: Arial, sans-serif;
-      color: #eee;
-      padding: 20px;
+      background: linear-gradient(135deg, #0d0d0d, #1a0033);
+      color: #00ffe1;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 10px;
     }
+
     h1 {
       text-align: center;
-      color: #00ffcc;
-    }
-    .signal {
-      background-color: #222;
-      padding: 15px;
-      border-radius: 10px;
+      color: #00ffd5;
       margin-bottom: 20px;
-      box-shadow: 0 0 10px #0f0f0f;
+      text-shadow: 0 0 5px #00ffe1, 0 0 10px #00ffe1;
     }
+
+    .signal {
+      background-color: #111;
+      border: 1px solid #8000ff;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 15px;
+      box-shadow: 0 0 15px rgba(128, 0, 255, 0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .signal:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 25px rgba(128, 0, 255, 0.7);
+    }
+
     .signal p {
       margin: 5px 0;
     }
+
     .highlight {
-      color: #00ffcc;
-    }
-    .risk {
       font-weight: bold;
-      color: orange;
+      color: #00ffd5;
     }
-    .goals {
-      color: #00ff88;
+
+    .fail {
+      color: red;
+      text-align: center;
     }
-    .first-half {
-      color: #ffaa00;
-    }
-    .analysis {
-      color: #aaa;
-      font-style: italic;
+
+    .icon {
+      font-size: 1.2em;
+      margin-right: 5px;
     }
   </style>
 </head>
 <body>
   <h1>📊 Today's Signals</h1>
-  <div id="signals"></div>
+  <div id="signals">Loading...</div>
 
   <script>
-    fetch("/signals.json")
+    fetch("signals.json")
       .then((res) => res.json())
       .then((data) => {
         const container = document.getElementById("signals");
-        if (data.length === 0) {
-          container.innerHTML = "<p>No signals available.</p>";
-          return;
-        }
+        container.innerHTML = "";
 
         data.slice().reverse().forEach((signal) => {
           const div = document.createElement("div");
           div.className = "signal";
           div.innerHTML = `
-            <p><b class="highlight">Match:</b> ${signal.match}</p>
-            <p><b class="highlight">Date:</b> ${signal.date}</p>
-            <p><b class="highlight">Win Prob:</b> ${signal.winProb}</p>
-            <p><b class="goals">Goals:</b> ${signal.goals}</p>
-            <p><b class="first-half">1st Half:</b> ${signal.firstHalf || "N/A"}</p>
-            <p><b class="risk">Risk:</b> ${signal.risk}</p>
-            <p class="analysis">📝 ${signal.analysis || ""}</p>
+            <p><span class="highlight">Match:</span> ${signal.match}</p>
+            <p><span class="highlight">Date:</span> ${signal.date}</p>
+            <p><span class="highlight">Win Prob:</span> ${signal.winProb}</p>
+            <p><span class="highlight">Goals:</span> ${signal.goals}</p>
+            <p><span class="highlight">1st Half:</span> ${signal.firstHalf}</p>
+            <p><span class="highlight">Risk:</span> ${signal.risk}</p>
+            <p>📝 ${signal.analysis}</p>
           `;
           container.appendChild(div);
         });
       })
       .catch((err) => {
         document.getElementById("signals").innerHTML =
-          "<p style='color:red;'>❌ Failed to load signals.</p>";
+          `<p class="fail">❌ Failed to load signals.</p>`;
       });
   </script>
 </body>
