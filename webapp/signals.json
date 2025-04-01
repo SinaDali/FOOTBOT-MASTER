@@ -1,22 +1,72 @@
 [
   {
-    "id": "91adf4cc-36cb-49e3-b5ab-43f0e1059cd7",
-    "match": "Juventus vs Bayern",
-    "date": "2024-04-04",
-    "winProb": "Juventus 45% - Bayern 55%",
-    "goals": "Over 2.5",
-    "firstHalf": "No - Likely goalless (confidence: 62%)",
-    "risk": "Medium",
-    "analysis": "In their last 5 meetings, Juventus won 2, Bayern won 3, and 1 were draws. Juventus is fighting for 3 points."
+    "id": "arsenal-fulham-20250401",
+    "teams": "Arsenal vs Fulham",
+    "date": "2025-04-01",
+    "winProbability": {
+      "Arsenal": 72,
+      "Fulham": 12,
+      "Draw": 16
+    },
+    "totalGoals": "Over 2.5",
+    "firstHalf": "At least one goal in first half",
+    "riskLevel": "Low",
+    "analysis": "Arsenal is dominating the Premier League race and plays at home with full squad available. Fulham struggles defensively away from home, making Arsenal a strong favorite."
   },
   {
-    "id": "c1a76d36-d88b-42c6-b13c-511324786981",
-    "match": "Barcelona vs PSG",
-    "date": "2024-04-04",
-    "winProb": "Barcelona 55% - PSG 45%",
-    "goals": "BTTS",
-    "firstHalf": "No - Likely goalless (confidence: 67%)",
-    "risk": "Medium",
-    "analysis": "In their last 5 meetings, Barcelona won 3, PSG won 2, and 1 were draws. Barcelona is fighting for 3 points."
+    "id": "wolves-westham-20250401",
+    "teams": "Wolves vs West Ham",
+    "date": "2025-04-01",
+    "winProbability": {
+      "Wolves": 34,
+      "West Ham": 38,
+      "Draw": 28
+    },
+    "totalGoals": "Under 3.5",
+    "firstHalf": "Possibly 0-0 or 1-0 first half",
+    "riskLevel": "Medium",
+    "analysis": "Both teams are mid-table and close in form. Expect a tactical match with limited chances, especially in the first half. Set pieces might be decisive."
+  },
+  {
+    "id": "nottingham-manunited-20250401",
+    "teams": "Nottingham Forest vs Manchester United",
+    "date": "2025-04-01",
+    "winProbability": {
+      "Nottingham Forest": 19,
+      "Manchester United": 64,
+      "Draw": 17
+    },
+    "totalGoals": "Over 2.5",
+    "firstHalf": "United likely to score early",
+    "riskLevel": "Low",
+    "analysis": "Manchester United is pushing for Champions League spots and needs a solid win. Nottingham has struggled against top-6 teams this season. Expect United to dominate possession."
+  },
+  {
+    "id": "realmadrid-sociedad-20250401",
+    "teams": "Real Madrid vs Real Sociedad",
+    "date": "2025-04-01",
+    "winProbability": {
+      "Real Madrid": 62,
+      "Real Sociedad": 21,
+      "Draw": 17
+    },
+    "totalGoals": "Under 3.5",
+    "firstHalf": "Likely 1-0 to Madrid",
+    "riskLevel": "Medium",
+    "analysis": "Cup semifinal with high stakes. Real Madrid has depth and home advantage, but Sociedad's disciplined play could keep it tight. Expect Madrid to score first and manage the game."
+  },
+  {
+    "id": "dunkerque-psg-20250401",
+    "teams": "Dunkerque vs Paris SG",
+    "date": "2025-04-01",
+    "winProbability": {
+      "Dunkerque": 5,
+      "Paris SG": 85,
+      "Draw": 10
+    },
+    "totalGoals": "Over 3.5",
+    "firstHalf": "PSG to score 1-2 goals early",
+    "riskLevel": "Low",
+    "analysis": "Huge mismatch in French Cup semi. PSG will rotate slightly but still field top attackers. Dunkerque may struggle to contain them. Expect goals in both halves."
   }
 ]
