@@ -2,16 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BetSignals</title>
   <style>
     body {
       margin: 0;
-      background: url("assets/bg.jpg") no-repeat center center fixed;
+      background: url("assets/bg2.png") no-repeat center center fixed;
       background-size: cover;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       color: #00ffe1;
-      padding: 0;
     }
 
     .overlay {
@@ -27,86 +26,98 @@
       text-shadow: 0 0 5px #00ffe1, 0 0 10px #00ffe1;
     }
 
-    .signal {
+    .match-item {
+      background-color: #111;
+      border: 1px solid #8000ff;
+      border-radius: 8px;
+      padding: 10px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .match-item:hover {
+      background-color: #222;
+    }
+
+    .match-details {
       background-color: #111;
       border: 1px solid #8000ff;
       border-radius: 10px;
       padding: 15px;
       margin-bottom: 15px;
       box-shadow: 0 0 15px rgba(128, 0, 255, 0.4);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .signal:hover {
-      transform: scale(1.02);
-      box-shadow: 0 0 25px rgba(128, 0, 255, 0.7);
+    .back-btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 16px;
+      background: #8000ff;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
     }
 
-    .signal p {
-      margin: 5px 0;
-    }
-
-    .highlight {
-      font-weight: bold;
-      color: #00ffd5;
-    }
-
-    .fail {
-      color: red;
-      text-align: center;
-    }
-
-    .goals {
-      color: #00ff88;
-    }
-
-    .first-half {
-      color: #ffaa00;
-    }
-
-    .risk {
-      color: orange;
-      font-weight: bold;
-    }
-
-    .analysis {
-      color: #ccc;
-      font-style: italic;
-    }
+    .highlight { color: #00ffd5; font-weight: bold; }
+    .goals { color: #00ff88; }
+    .first-half { color: #ffaa00; }
+    .risk { color: orange; font-weight: bold; }
+    .analysis { color: #ccc; font-style: italic; }
   </style>
 </head>
 <body>
   <div class="overlay">
-    <h1>📊 Today's Signals</h1>
-    <div id="signals">Loading...</div>
+    <h1>📊 Select a Match</h1>
+    <div id="match-list"></div>
+    <div id="match-details" style="display:none;"></div>
   </div>
 
   <script>
+    let signals = [];
+
     fetch("signals.json")
       .then((res) => res.json())
       .then((data) => {
-        const container = document.getElementById("signals");
-        container.innerHTML = "";
-
-        data.slice().reverse().forEach((signal) => {
-          const div = document.createElement("div");
-          div.className = "signal";
-          div.innerHTML = `
-            <p><span class="highlight">Match:</span> ${signal.match}</p>
-            <p><span class="highlight">Date:</span> ${signal.date}</p>
-            <p><span class="highlight">Win Prob:</span> ${signal.winProb}</p>
-            <p><span class="goals">Goals:</span> ${signal.goals}</p>
-            <p><span class="first-half">1st Half:</span> ${signal.firstHalf}</p>
-            <p><span class="risk">Risk:</span> ${signal.risk}</p>
-            <p class="analysis">📝 ${signal.analysis}</p>
-          `;
-          container.appendChild(div);
+        signals = data.slice().reverse();
+        const list = document.getElementById("match-list");
+        signals.forEach((signal, index) => {
+          const item = document.createElement("div");
+          item.className = "match-item";
+          item.textContent = signal.match;
+          item.onclick = () => showDetails(index);
+          list.appendChild(item);
         });
       })
-      .catch((err) => {
-        document.getElementById("signals").innerHTML =
-          "<p class='fail'>❌ Failed to load signals.</p>";
+      .catch(() => {
+        document.getElementById("match-list").innerHTML =
+          "<p style='color:red;'>❌ Failed to load signals.</p>";
       });
+
+    function showDetails(index) {
+      const signal = signals[index];
+      document.getElementById("match-list").style.display = "none";
+      const details = document.getElementById("match-details");
+      details.style.display = "block";
+      details.innerHTML = `
+        <div class="match-details">
+          <p><span class="highlight">Match:</span> ${signal.match}</p>
+          <p><span class="highlight">Date:</span> ${signal.date}</p>
+          <p><span class="highlight">Win Prob:</span> ${signal.winProb}</p>
+          <p><span class="goals">Goals:</span> ${signal.goals}</p>
+          <p><span class="first-half">1st Half:</span> ${signal.firstHalf}</p>
+          <p><span class="risk">Risk:</span> ${signal.risk}</p>
+          <p class="analysis">📝 ${signal.analysis}</p>
+          <button class="back-btn" onclick="goBack()">🔙 Back</button>
+        </div>
+      `;
+    }
+
+    function goBack() {
+      document.getElementById("match-details").style.display = "none";
+      document.getElementById("match-list").style.display = "block";
+    }
   </script>
 </body>
 </html>
