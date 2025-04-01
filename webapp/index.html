@@ -6,10 +6,18 @@
   <title>BetSignals</title>
   <style>
     body {
-      background: linear-gradient(135deg, #0d0d0d, #1a0033);
-      color: #00ffe1;
+      margin: 0;
+      background: url("assets/bg.jpg") no-repeat center center fixed;
+      background-size: cover;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      padding: 10px;
+      color: #00ffe1;
+      padding: 0;
+    }
+
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.75);
+      min-height: 100vh;
+      padding: 20px;
     }
 
     h1 {
@@ -68,8 +76,10 @@
   </style>
 </head>
 <body>
-  <h1>📊 Today's Signals</h1>
-  <div id="signals">Loading...</div>
+  <div class="overlay">
+    <h1>📊 Today's Signals</h1>
+    <div id="signals">Loading...</div>
+  </div>
 
   <script>
     fetch("signals.json")
