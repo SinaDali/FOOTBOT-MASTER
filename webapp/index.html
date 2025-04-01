@@ -48,9 +48,22 @@
       text-align: center;
     }
 
-    .icon {
-      font-size: 1.2em;
-      margin-right: 5px;
+    .goals {
+      color: #00ff88;
+    }
+
+    .first-half {
+      color: #ffaa00;
+    }
+
+    .risk {
+      color: orange;
+      font-weight: bold;
+    }
+
+    .analysis {
+      color: #ccc;
+      font-style: italic;
     }
   </style>
 </head>
@@ -72,17 +85,17 @@
             <p><span class="highlight">Match:</span> ${signal.match}</p>
             <p><span class="highlight">Date:</span> ${signal.date}</p>
             <p><span class="highlight">Win Prob:</span> ${signal.winProb}</p>
-            <p><span class="highlight">Goals:</span> ${signal.goals}</p>
-            <p><span class="highlight">1st Half:</span> ${signal.firstHalf}</p>
-            <p><span class="highlight">Risk:</span> ${signal.risk}</p>
-            <p>📝 ${signal.analysis}</p>
+            <p><span class="goals">Goals:</span> ${signal.goals}</p>
+            <p><span class="first-half">1st Half:</span> ${signal.firstHalf}</p>
+            <p><span class="risk">Risk:</span> ${signal.risk}</p>
+            <p class="analysis">📝 ${signal.analysis}</p>
           `;
           container.appendChild(div);
         });
       })
       .catch((err) => {
         document.getElementById("signals").innerHTML =
-          `<p class="fail">❌ Failed to load signals.</p>`;
+          "<p class='fail'>❌ Failed to load signals.</p>";
       });
   </script>
 </body>
